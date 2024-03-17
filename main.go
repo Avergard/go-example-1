@@ -4,8 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println(15)
-}
-func Person() {
+
 	type Person struct {
 		FirstName string
 		LastName  string
