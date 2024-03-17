@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	fmt.Println(15)
@@ -16,5 +19,13 @@ func main() {
 		{"Tracy", "Bobbert", 23},
 		{"Fred", "Fredson", 18},
 	}
+	fmt.Println(people)
+	sort.Slice(people, func(i int, j int) bool {
+		return people[i].Age < people[j].Age
+	})
+	fmt.Println(people)
+	sort.Slice(people, func(i int, j int) bool {
+		return people[i].LastName < people[j].LastName
+	})
 	fmt.Println(people)
 }
