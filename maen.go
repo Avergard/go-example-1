@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Start of the program")
 	defer fmt.Println("End of the program")
+	fmt.Println("Start of the program")
 	makeCounter := func(x int) func() int {
 		counter := x
 		return func() int {
@@ -13,13 +13,12 @@ func main() {
 		}
 	}
 	counter := makeCounter(0)
-	for j := 0; j < 10; j++ {
+	for i := 0; i < 10; i++ {
 		result := counter()
 		fmt.Println(result)
 		if result > 5 {
-			fmt.Println("break")
+			fmt.Println("Break")
 			break
 		}
 	}
-
 }
