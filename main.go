@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	fmt.Println("Start of the program")
 	defer fmt.Println("End of the program")
-	makeCounter := func(x int) func() int {
-		counter := x
+	makeCounter := func(i int) func() int {
+		counter := i
 		return func() int {
 			counter++
 			return counter
