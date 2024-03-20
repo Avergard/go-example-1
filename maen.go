@@ -12,13 +12,4 @@ func main() {
 			return counter
 		}
 	}
-	counter := makeCounter(0)
-	for i := 0; i < 10; i++ {
-		result := counter()
-		fmt.Println(result)
-		if result > 5 {
-			fmt.Println("Break")
-			break
-		}
-	}
 }
