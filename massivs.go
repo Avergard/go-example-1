@@ -9,4 +9,7 @@ func main() {
 	fmt.Println(y)
 	z := [...]string{"lol", 12: "lol"}
 	fmt.Println(z)
+	h := [12][13]string{"lol"}
+	fmt.Println(h)
+
 }
