@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type person interface {
+type user interface {
 	getName() string
 	getSeconName() string
 	getWorkExperience() bool
@@ -20,11 +20,16 @@ type Person struct {
 
 func (p *Person) getName() string {
 	return p.Name
-
+}
+func (p *Person) getSecondName() string {
+	return p.SecondName
+}
+func (p *Person) getAge() uint {
+	return p.Age
 }
 
 func (p *Person) IsSleep() {
-	fmt.Printf("%s Спит", p.Name)
+	fmt.Printf("%s drochit", p.Name)
 	fmt.Println()
 
 }
@@ -36,6 +41,8 @@ func personIsEating(k Person) {
 	fmt.Printf("%s%s кушает", k.Name, k.SecondName)
 	fmt.Println()
 }
+
+//PROGRAMMER
 
 type Programmer struct {
 	Person
@@ -52,6 +59,8 @@ func ProgrammerIsEating(l Programmer) {
 func (Pr *Programmer) getProgrammingLanguageKnowledge() string {
 	return Pr.programmingLanguageKnowledge
 }
+
+// Меняет AllDocPages
 func (pr *Programmer) changeDoc(DocPagesToday int) {
 	pr.allDocPages = DocPagesToday
 
@@ -122,4 +131,5 @@ func main() {
 	human2.getProgrammingLanguageKnowledge()
 	human3.getProgrammingLanguageKnowledge()
 
+	fmt.Println(human2, human1, human3)
 }
