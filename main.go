@@ -29,7 +29,7 @@ func (p *Person) getAge() uint {
 }
 
 func (p *Person) IsSleep() {
-	fmt.Printf("%s drochit", p.Name)
+	fmt.Printf("%s dolboeb", p.Name)
 	fmt.Println()
 
 }
