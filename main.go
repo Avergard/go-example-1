@@ -2,10 +2,14 @@ package main
 
 import "fmt"
 
-type user interface {
+type person interface {
 	getName() string
 	getSeconName() string
 	getWorkExperience() bool
+}
+type programmer interface {
+	getBuildSomeServers() bool
+	getAllDocPages() int
 }
 
 type Person struct {
@@ -18,9 +22,12 @@ type Person struct {
 	usersCell      int
 }
 
-func (p *Person) getName() string {
-	return p.Name
+func (p *Person) getName() {
+
+	fmt.Printf("name %s", p.Name)
+
 }
+
 func (p *Person) getSecondName() string {
 	return p.SecondName
 }
@@ -40,6 +47,9 @@ func (p *Person) IsGettingOld() {
 func personIsEating(k Person) {
 	fmt.Printf("%s%s кушает", k.Name, k.SecondName)
 	fmt.Println()
+}
+func (p *Person) changeAge(AgeNow uint) {
+	p.Age = AgeNow
 }
 
 //PROGRAMMER
@@ -76,10 +86,16 @@ func main() {
 		usersCell:      1,
 		workExperience: "0 years",
 	}
+	fmt.Println(human1.Name, human1.SecondName, "age", human1.Age)
+
+	human1.changeAge(23)
+
+	fmt.Println(human1.Name, human1.SecondName, "age now", human1.Age)
+
 	human2 := Programmer{
 		Person: Person{
-			Name:           "Uwuwuwewe",
-			SecondName:     "Osas",
+			Name:           "stas",
+			SecondName:     "nikitov",
 			Age:            34,
 			Weight:         81,
 			Race:           "Negroid",
@@ -90,6 +106,7 @@ func main() {
 		programmingLanguageKnowledge: "middle",
 		allDocPages:                  110,
 	}
+
 	fmt.Println(human2.Name, human2.SecondName, "doc for all time", human2.allDocPages)
 
 	human2.changeDoc(2)
@@ -98,11 +115,11 @@ func main() {
 
 	human3 := Programmer{
 		Person: Person{
-			Name:           "Ching",
-			SecondName:     "Chong",
+			Name:           "Qxin",
+			SecondName:     "Qxan",
 			Age:            54,
 			Weight:         59,
-			Race:           "ASSsian",
+			Race:           "Asian",
 			usersCell:      3,
 			workExperience: "26 years",
 		},
@@ -110,6 +127,7 @@ func main() {
 		programmingLanguageKnowledge: "senior",
 		allDocPages:                  1229,
 	}
+	fmt.Println()
 	fmt.Println(human3.Name, human3.SecondName, "doc for all time", human3.allDocPages)
 
 	human3.changeDoc(12)
@@ -119,6 +137,8 @@ func main() {
 	personIsEating(human1)
 	ProgrammerIsEating(human2)
 	ProgrammerIsEating(human3)
+
+	(&human1).getName()
 
 	human1.IsGettingOld()
 	human2.IsGettingOld()
@@ -131,5 +151,7 @@ func main() {
 	human2.getProgrammingLanguageKnowledge()
 	human3.getProgrammingLanguageKnowledge()
 
-	fmt.Println(human2, human1, human3)
+	fmt.Println(human1)
+	fmt.Println(human2)
+	fmt.Println(human3)
 }

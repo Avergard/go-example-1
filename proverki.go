@@ -2,89 +2,72 @@ package main
 
 import "fmt"
 
+// Interface for general human behavior
+type Human interface {
+	Greet()
+	Eat()
+	Sleep()
+}
+
+// Interface for programmer specific behavior
+type ProgrammerInterface interface {
+	Code()
+	LearnNewLanguage()
+}
+
+// Person structure with common fields and methods
 type Person struct {
-	Name           string
-	SecondName     string
-	Age            uint
-	Weight         uint
-	Race           string
-	workExperience uint
-	usersCell      int
+	Name string
 }
 
-func (p *Person) IsSleep() {
-	fmt.Printf("%s Спит", p.Name)
-	fmt.Println()
-
-}
-func (p *Person) IsGettingOld() {
-	fmt.Printf("%s %s %s %d  год,", p.Name, p.SecondName, ": возраст", p.Age)
-	fmt.Println()
-}
-func personIsEating(k Person) {
-	fmt.Printf("%s%s кушает", k.Name, k.SecondName)
-	fmt.Println()
+// Greet method for Person structure
+func (p *Person) Greet() {
+	fmt.Printf("Hello, my name is %s\n", p.Name)
 }
 
-func (p *Person) aPersonLearns() {
-	fmt.Printf("%s %s Учится", p.Name, p.SecondName)
-	fmt.Println()
+// Eat method for Person structure
+func (p *Person) Eat() {
+	fmt.Println("I am eating.")
 }
-func (p *Person) thePersonIsPracticing() {
-	fmt.Printf("%s %s Практикует", p.Name, p.SecondName)
-	fmt.Println()
+
+// Sleep method for Person structure
+func (p *Person) Sleep() {
+	fmt.Println("I am sleeping.")
 }
-func (p *Person) aPersonTeaches() {
-	fmt.Printf("%s %s Обучает", p.Name, p.SecondName)
-	fmt.Println()
+
+// Programmer structure with programmer specific fields and methods
+type Programmer struct {
+	Person
+	Language string
 }
-func (p *Person) usersСell() {
-	fmt.Printf("%d   номер на диске", p.usersCell)
+
+// Code method for Programmer structure
+func (p *Programmer) Code() {
+	fmt.Printf("%s is coding in %s\n", p.Name, p.Language)
+}
+
+// LearnNewLanguage method for Programmer structure
+func (p *Programmer) LearnNewLanguage() {
+	fmt.Println("Learning new programming language...")
 }
 
 func main() {
-	human1 := Person{
-		Name:           "Nikita",
-		SecondName:     "Kriukov",
-		Age:            21,
-		Weight:         75,
-		Race:           "European",
-		workExperience: 2,
-		usersCell:      1,
-	}
-	human2 := Person{
-		Name:           "Uwuwuwewe",
-		SecondName:     "Osas",
-		Age:            34,
-		Weight:         81,
-		Race:           "Negroid",
-		workExperience: 12,
-		usersCell:      2,
-	}
-	human3 := Person{
-		Name:           "Ching",
-		SecondName:     "Chong",
-		Age:            54,
-		Weight:         59,
-		Race:           "ASSsian",
-		workExperience: 25,
-		usersCell:      3,
+	// Create instance of Programmer which contains an instance of Person
+	programmer := &Programmer{
+		Person: Person{
+			Name: "John Doe",
+		},
+		Language: "Go",
 	}
 
-	personIsEating(human1)
-	personIsEating(human2)
-	personIsEating(human3)
+	// Call methods from both structures
+	programmer.Greet()
+	programmer.Code()
+	programmer.LearnNewLanguage()
 
-	human1.aPersonLearns()
-	human2.thePersonIsPracticing()
-	human3.aPersonTeaches()
-
-	human1.IsGettingOld()
-	human2.IsGettingOld()
-	human3.IsGettingOld()
-
-	human1.IsSleep()
-	human2.IsSleep()
-	human3.IsSleep()
-
+	// Cast programmer to Person and call its methods
+	person := Programmer.(*Person)
+	person.Greet()
+	person.Eat()
+	person.Sleep()
 }
