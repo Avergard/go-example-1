@@ -36,16 +36,16 @@ func (p *Person) getAge() uint {
 }
 
 func (p *Person) IsSleep() {
-	fmt.Printf("%s dolboeb", p.Name)
+	fmt.Printf("%s: dolboeb", p.Name)
 	fmt.Println()
 
 }
 func (p *Person) IsGettingOld() {
-	fmt.Printf("%s %s %s %d  год,", p.Name, p.SecondName, ": возраст", p.Age)
+	fmt.Printf("%s %s: возраст %d  год,", p.Name, p.SecondName, p.Age)
 	fmt.Println()
 }
 func personIsEating(k Person) {
-	fmt.Printf("%s%s кушает", k.Name, k.SecondName)
+	fmt.Printf("%s%s: кушает", k.Name, k.SecondName)
 	fmt.Println()
 }
 func (p *Person) changeAge(AgeNow uint) {
@@ -62,17 +62,17 @@ type Programmer struct {
 }
 
 func ProgrammerIsEating(l Programmer) {
-	fmt.Printf("%s%s кушает", l.Name, l.SecondName)
+	fmt.Printf("%s%s: кушает", l.Name, l.SecondName)
 	fmt.Println()
 }
 
-func (Pr *Programmer) getProgrammingLanguageKnowledge() string {
-	return Pr.programmingLanguageKnowledge
+func (P *Programmer) getProgrammingLanguageKnowledge() string {
+	return P.programmingLanguageKnowledge
 }
 
 // Меняет AllDocPages
-func (pr *Programmer) changeDoc(DocPagesToday int) {
-	pr.allDocPages = DocPagesToday
+func (p *Programmer) changeDoc(DocPagesToday int) {
+	p.allDocPages = DocPagesToday
 
 }
 
