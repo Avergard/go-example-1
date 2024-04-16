@@ -36,7 +36,7 @@ func (p *Person) getAge() uint {
 }
 
 func (p *Person) IsSleep() {
-	fmt.Printf("%s: dolboeb", p.Name)
+	fmt.Printf("%s: dolb", p.Name)
 	fmt.Println()
 
 }
@@ -151,7 +151,12 @@ func main() {
 	human2.getProgrammingLanguageKnowledge()
 	human3.getProgrammingLanguageKnowledge()
 
-	fmt.Println(human1)
-	fmt.Println(human2)
-	fmt.Println(human3)
+	fmt.Println(
+		"human1",
+		human1,
+		"human2",
+		human2,
+		"human3",
+		human3,
+	)
 }
