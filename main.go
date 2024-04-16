@@ -4,7 +4,7 @@ import "fmt"
 
 type person interface {
 	getName() string
-	getSeconName() string
+	getSecondName() string
 	getWorkExperience() bool
 }
 type programmer interface {
@@ -36,7 +36,7 @@ func (p *Person) getAge() uint {
 }
 
 func (p *Person) IsSleep() {
-	fmt.Printf("%s: dolb", p.Name)
+	fmt.Printf("%s: спит уже", p.Name)
 	fmt.Println()
 
 }
